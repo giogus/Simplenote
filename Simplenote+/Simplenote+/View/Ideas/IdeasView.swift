@@ -1,5 +1,5 @@
 //
-//  NotesView.swift
+//  IdeasView.swift
 //  Simplenote+
 //
 //  Created by Gustavo Severo on 05/04/20.
@@ -8,16 +8,16 @@
 
 import SwiftUI
 
-struct NotesView: View {
+struct IdeasView: View {
     
     @EnvironmentObject var viewModel: ViewModel
     @State var isPresented: Bool = false
     
     var body: some View {
         NavigationView {
-            List(viewModel.model.notes) { note in
+            List(viewModel.model.ideas) { idea in
                 VStack {
-                    Text(note.text)
+                    Text(idea.text)
                 }
             }
             .navigationBarItems(trailing:
@@ -34,7 +34,7 @@ struct NotesView: View {
                         .accentColor(.pink)
                 }
             )
-            .navigationBarTitle("Notes")
+            .navigationBarTitle("Ideas 💡")
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $viewModel.states.isAuthViewPresented) {
@@ -44,28 +44,25 @@ struct NotesView: View {
 }
 
 // MARK: - Preview -
-struct NotesView_Previews: PreviewProvider {
+struct IdeasView_Previews: PreviewProvider {
     
     static var page: some View {
-        NotesView().environmentObject(ViewModel())
+        IdeasView().environmentObject(ViewModel())
     }
     
     static var previews: some View {
         Group {
-//            page
-//                .previewDevice("iPhone SE")
-//                .environment(\.colorScheme, .dark)
+            page
+                .previewDevice("iPhone SE")
+                .environment(\.colorScheme, .dark)
             
-            //            page
-            //                .previewDevice("iPhone 8 Plus")
-            //                .environment(\.colorScheme, .light)
-            //
+            page
+                .previewDevice("iPhone 11 Pro")
+                .environment(\.colorScheme, .light)
+            
             page
                 .previewDevice("iPad Pro (12.9-inch) (4th generation)")
                 .environment(\.colorScheme, .dark)
-            page
-            .previewDevice("iPad (7th generation)")
-            .environment(\.colorScheme, .dark)
         }
     }
 }

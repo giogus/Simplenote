@@ -1,5 +1,5 @@
 //
-//  Note.swift
+//  Idea.swift
 //  Simplenote+
 //
 //  Created by Gustavo Severo on 05/04/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Note: Identifiable {
+struct Idea: Identifiable {
     let id = UUID()
     let text: String
 }
